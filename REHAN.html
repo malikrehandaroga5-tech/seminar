@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #2c3e50, #34495e);
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            position: relative;
+        }
+
+        .ghost {
+            width: 100px;
+            height: 120px;
+            background-color: #ecf0f1;
+            border-radius: 50% 50% 0 0;
+            position: relative;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.5);
+            animation: float 2s ease-in-out infinite;
+            transition: transform 0.5s ease;
+        }
+
+        .ghost::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 15px;
+            height: 15px;
+            background-color: #34495e;
+            border-radius: 50%;
+        }
+
+        .ghost::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 15px;
+            height: 15px;
+            background-color: #34495e;
+            border-radius: 50%;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .login-form {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            width: 300px;
+        }
+
+        .login-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .login-form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .login-form input::placeholder {
+            color: #bdc3c7;
+        }
+
+        .login-form button {
+            width: 100%;
+            padding: 10px;
+            background: #e74c3c;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .login-form button:hover {
+            background: #c0392b;
+        }
+
+        input:focus ~ .ghost,
+        input:focus + .ghost {
+            transform: translateX(50px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="ghost"></div>
+        <form class="login-form">
+            <h2>Login</h2>
+            <label for="username">Username</label>
+            <input type="text" id="username" placeholder="Enter your username" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter your password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>
